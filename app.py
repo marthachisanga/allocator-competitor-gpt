@@ -1,32 +1,23 @@
 import streamlit as st
 import pandas as pd
-from PIL import Image
 
-# --- Logo ---
-logo = Image.open("allocator-logo.png")  # Replace with your file name
-st.image(logo, width=180)
-
-st.title("Allocator Competitor Lookup Tool")
-st.write("🔍 Search internal notes about competitors to assist during SDR calls.")
-
-# Load Excel
+# Load the Excel file
 df = pd.read_excel("gpt.xlsx", sheet_name="Sheet2")
 
-# Search input
-query = st.text_input("Enter Competitor Name").strip().lower()
+st.title("Allocator Competitor Lookup Tool")
+st.write("Search internal notes about competitors to assist during SDR calls.")
 
+# Input box
+query = st.text_input("🔍 Enter Competitor Name").strip().lower()
+
+# Search logic
 if query:
     results = df[df['Competitor Name'].str.lower().str.contains(query, na=False)]
     
     if not results.empty:
         for _, row in results.iterrows():
             st.subheader(row['Competitor Name'].title())
-            notes = str(row['Internal Notes'])
-
-            # Bullet point formatting
-            bullets = [note.strip() for note in notes.split('.') if note.strip()]
-            for bullet in bullets:
-                st.markdown(f"- {bullet}")
+            st.write(row['Internal Notes'])
     else:
         st.warning("No matching competitor found.")
 else:
