@@ -4,7 +4,7 @@ import pandas as pd
 # --- Display Allocator Logo ---
 st.image("https://www.allocator.com/hubfs/post_feat-img_default.png", width=180)
 
-st.title("Allocator Competitor Lookup Tool")
+st.title("Allocator Competitor Lookup")
 st.write("🔍 Quickfire notes about competitors to assist during outreach calls.")
 
 # Load Excel
