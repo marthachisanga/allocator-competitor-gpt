@@ -5,7 +5,7 @@ import pandas as pd
 st.image("https://www.allocator.com/hubfs/post_feat-img_default.png", width=180)
 
 st.title("Allocator Competitor Lookup Tool")
-st.write("🔍 Search internal notes about competitors to assist during SDR calls.")
+st.write("🔍 Quickfire notes about competitors to assist during outreach calls.")
 
 # Load Excel
 df = pd.read_excel("gpt.xlsx", sheet_name="Sheet2")
