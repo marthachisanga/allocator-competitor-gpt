@@ -1,6 +1,17 @@
 import streamlit as st
 import pandas as pd
 
+# --- Password protection ---
+PASSWORD = "allocator2025!"  # Change this to your preferred password
+
+password = st.text_input("Enter password to access:", type="password")
+
+if password != PASSWORD:
+    st.warning("🔒 Please enter the correct password to continue.")
+    st.stop()
+import streamlit as st
+import pandas as pd
+
 # --- Display Allocator Logo ---
 st.image("https://www.allocator.com/hubfs/post_feat-img_default.png", width=180)
 
